@@ -1,5 +1,7 @@
 # Vue Wavify
 ![build](https://github.com/SvenWesterlaken/vue-wavify/workflows/build/badge.svg?branch=main)
+[![npm](https://img.shields.io/npm/v/vue-wavify.svg)](https://www.npmjs.com/package/vue-wavify)
+[![npm](https://img.shields.io/npm/dt/vue-wavify.svg)](https://www.npmjs.com/package/vue-wavify)
 [![img](https://img.shields.io/npm/l/vue-wavify.svg)](https://github.com/SvenWesterlaken/vue-wavify/blob/main/LICENSE)
 
 A single Vue component to create and adjust an animated wave using svg & javascript.
