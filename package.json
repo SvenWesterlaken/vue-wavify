@@ -1,6 +1,6 @@
 {
   "name": "vue-wavify",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "🌊 Animated wave component for Vue (using svg)",
   "author": "Sven Westerlaken",
   "license": "MIT",

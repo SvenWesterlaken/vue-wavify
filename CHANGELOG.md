@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/SvenWesterlaken/vue-wavify/compare/v1.0.0...v1.1.0) (2021-01-31)
+
+
+### Bug Fixes
+
+* **action:** remove coveralls from release step ([805eee3](https://github.com/SvenWesterlaken/vue-wavify/commit/805eee3e6b0fe427cc0f557727c86a979463a630))
+
+
+### Features
+
+* **readme:** add npm badges ([dbec35e](https://github.com/SvenWesterlaken/vue-wavify/commit/dbec35e00f456fb143b6cd68e5270f95a6889a09))
+
 # 1.0.0 (2021-01-31)
 
 
