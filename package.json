@@ -1,6 +1,6 @@
 {
   "name": "vue-wavify",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "🌊 Animated wave component for Vue (using svg)",
   "main": "dist/vue-wavify.ssr.js",
   "browser": "dist/vue-wavify.esm.js",
