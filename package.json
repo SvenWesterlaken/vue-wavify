@@ -1,6 +1,6 @@
 {
   "name": "vue-wavify",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "🌊 Animated wave component for Vue (using svg)",
   "author": "Sven Westerlaken",
   "license": "MIT",
@@ -58,7 +58,10 @@
     "node": ">=10"
   },
   "release": {
-    "branches": ["master", "main"],
+    "branches": [
+      "master",
+      "main"
+    ],
     "verifyConditions": [
       "@semantic-release/changelog",
       "@semantic-release/npm",
