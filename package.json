@@ -2,6 +2,8 @@
   "name": "vue-wavify",
   "version": "0.0.1",
   "description": "🌊 Animated wave component for Vue (using svg)",
+  "author": "Sven Westerlaken",
+  "license": "MIT",
   "main": "dist/vue-wavify.ssr.js",
   "browser": "dist/vue-wavify.esm.js",
   "module": "dist/vue-wavify.esm.js",
@@ -10,6 +12,14 @@
     "dist/*",
     "src/**/*.vue"
   ],
+  "bugs": {
+    "url": "https://github.com/SvenWesterlaken/vue-wavify/issues",
+    "email": "sven.westerlaken@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SvenWesterlaken/vue-wavify"
+  },
   "scripts": {
     "serve": "vue-cli-service serve dev/serve.js",
     "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
