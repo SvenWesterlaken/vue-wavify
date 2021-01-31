@@ -46,17 +46,27 @@ Vue.component('vue-wavify', VueWavify);
 
 ```
 
-# Configuration (props)
+# Props
 
+In order the configure the wave, the following props can be applied:
 
 | prop        | default | type      | description |
 | ----------- |:-------:|:---------:|:----------- |
-| `paused`    | `false` | `Boolean` | |
-| `points`    | `3`     | `Number`  | |
-| `speed`     | `0.15`  | `Number`  | |
-| `height`    | `20`    | `Number`  | |
-| `amplitude` | `20`    | `Number`  | |
-| `fill`      | `blue`  | `String`  | |
+| `paused`    | `false` | `Boolean` | Pauses the animation |
+| `points`    | `3`     | `Number`  | Amount of points used to form the wave |
+| `speed`     | `0.15`  | `Number`  | Speed that the wave animation plays at |
+| `height`    | `20`    | `Number`  | Height of the wave relative to the SVG element |
+| `amplitude` | `20`    | `Number`  | Amplitude of the rendered wave |
+| `fill`      | `blue`  | `String`  | Color of the wave (can be anything that a SVG path accepts) |
+
+**Note:** Props that are not mentiond above will be passed on the svg element instead of the container.
+
+# Configuring the SVG
+It is possible to configure and style the svg more precisely by using the default [slot](https://vuejs.org/v2/guide/components-slots.html).
+This can be any HTML a SVG accepts. For example a `<defs>` component to add gradients, clipping paths, or masks.
+
+# Configuring the container
+In order for the svg to take up full-width there is a container surrounding the svg. By standard it is set to `width: 100%; display: inline-block;`. The svg animating the wave is set to a width & height of 100%. Therefore, it is advised to manipulate the height and width by using the css class of the container: `.vue-wavify-wave`.
 
 # Credits
 
