@@ -2,7 +2,7 @@
 <div class="vue-wavify-wave" ref="wave" v-on="$listeners" v-bind="$attrs">
   <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
     <slot></slot>
-    <path :d="this.path" :fill="fill" v-bind="$attrs"/>
+    <path :d="this.path" :fill="fill"/>
   </svg>
 </div>
 </template>
