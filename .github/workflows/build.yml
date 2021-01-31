@@ -4,13 +4,13 @@ on:
   pull_request:
   push:
     branches:
-      - master
+      - main
       - feature/githubaction
 
 jobs: 
   build:
     # Only release on push to master
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
