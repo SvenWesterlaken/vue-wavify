@@ -21,8 +21,8 @@ The package can be imported globally or locally.
 **Locally (single file component)**
 ```vue
 <template>
-  <div class="wave-container" fill="#f79902">
-    <vue-wavify />
+  <div class="wave-container">
+    <vue-wavify fill="#f79902"/>
   </div>
 </template>
 
