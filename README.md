@@ -49,6 +49,14 @@ Vue.component('vue-wavify', VueWavify);
 # Configuration (props)
 
 
+| prop        | default | type      | description |
+| ----------- |:-------:|:---------:|:----------- |
+| `paused`    | `false` | `Boolean` | |
+| `points`    | `3`     | `Number`  | |
+| `speed`     | `0.15`  | `Number`  | |
+| `height`    | `20`    | `Number`  | |
+| `amplitude` | `20`    | `Number`  | |
+| `fill`      | `blue`  | `String`  | |
 
 # Credits
 
