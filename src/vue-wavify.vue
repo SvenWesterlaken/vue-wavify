@@ -1,77 +1,143 @@
+<template>
+<div class="vue-wavify-wave" ref="wave" v-on="$listeners" v-bind="$attrs">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <slot></slot>
+    <path :d="this.path" :fill="fill" v-bind="$attrs"/>
+  </svg>
+</div>
+</template>
+
 <script>
 export default {
-  name: 'VueWavify', // vue component name
+  name: 'VueWavify',
+  inheritAttrs: false,
+  props: {
+    paused: {
+      default: false,
+      type: Boolean
+    },
+    points: {
+      default: 3,
+      type: Number
+    },
+    speed: {
+      default: 0.15,
+      type: Number
+    },
+    height: {
+      default: 20,
+      type: Number
+    },
+    amplitude: {
+      default: 20,
+      type: Number
+    },
+    fill: {
+      default: 'blue',
+      type: String
+    }
+  },
   data() {
     return {
-      counter: 5,
-      initCounter: 5,
-      message: {
-        action: null,
-        amount: null,
-      },
-    };
+      path: '',
+      lastUpdate: 0,
+      elapsed: 0,
+      step: 0
+    }
   },
-  computed: {
-    changedBy() {
-      const { message } = this;
-      if (!message.action) return 'initialized';
-      return `${message?.action} ${message.amount ?? ''}`.trim();
-    },
+  mounted() {
+    if (!this.$frameId) {
+      this.resume();
+    }
+  },
+  beforeDestroy() {
+    window.cancelAnimationFrame(this.$frameId);
+    this.$frameId = 0;
   },
   methods: {
-    increment(arg) {
-      const amount = (typeof arg !== 'number') ? 1 : arg;
-      this.counter += amount;
-      this.message.action = 'incremented by';
-      this.message.amount = amount;
+    containerWidth () {
+      return this.$refs.wave.offsetWidth;
     },
-    decrement(arg) {
-      const amount = (typeof arg !== 'number') ? 1 : arg;
-      this.counter -= amount;
-      this.message.action = 'decremented by';
-      this.message.amount = amount;
+    containerHeight () {
+      return this.$refs.wave.offsetHeight;
     },
-    reset() {
-      this.counter = this.initCounter;
-      this.message.action = 'reset';
-      this.message.amount = null;
+    calculateWavePoints () {
+      const points = [];
+      for (let i = 0; i <= Math.max(this.points, 1); i ++) {
+        const scale = 100;
+        const x = i / this.points * this.containerWidth();
+        const seed = (this.step + (i + i % this.points)) * this.speed * scale;
+        const height = Math.sin(seed / scale) * this.amplitude;
+        const y = Math.sin(seed / scale) * height  + this.height;
+        
+        points.push({x, y});
+      }
+      return points;
     },
-  },
+    buildPath (points) {
+      let svg = `M ${points[0].x} ${points[0].y}`;
+
+      const initial = {
+        x: (points[1].x - points[0].x) / 2,
+        y: (points[1].y - points[0].y) + points[0].y + (points[1].y - points[0].y)
+      };
+
+      const cubic = (a, b) => ` C ${a.x} ${a.y} ${a.x} ${a.y} ${b.x} ${b.y}`;
+      svg += cubic(initial, points[1]);
+
+      let point = initial;
+
+      for (let i = 1; i < points.length - 1; i ++) {
+        point = {
+          x: (points[i].x - point.x) + points[i].x,
+          y: (points[i].y - point.y) + points[i].y
+        };
+        svg += cubic(point, points[i + 1]);
+      }
+
+      svg += ` L ${this.containerWidth()} ${this.containerHeight()}`;
+      svg += ` L 0 ${this.containerHeight()} Z`;
+
+      return svg;
+    },
+    redraw () {
+      this.path = this.buildPath(this.calculateWavePoints());
+    },
+    draw () {
+      if (!this.paused) {
+        const now = new Date();
+        
+        this.elapsed += (now - this.lastUpdate);
+        this.lastUpdate = now;
+      }
+      const scale = 1000;
+
+      this.step = this.elapsed * Math.PI / scale;
+      this.redraw();
+    },
+    update () {
+      this.draw();
+      if (this.$frameId) {
+        this.resume();
+      };
+    },
+    resume () {
+      this.$frameId = window.requestAnimationFrame(this.update);
+      this.lastUpdate = new Date();
+    }
+  }
 };
 </script>
 
-<template>
-  <div class="vue-wavify">
-    <p>The counter was {{ changedBy }} to <b>{{ counter }}</b>.</p>
-    <button @click="increment">
-      Click +1
-    </button>
-    <button @click="decrement">
-      Click -1
-    </button>
-    <button @click="increment(5)">
-      Click +5
-    </button>
-    <button @click="decrement(5)">
-      Click -5
-    </button>
-    <button @click="reset">
-      Reset
-    </button>
-  </div>
-</template>
 
 <style scoped>
-  .vue-wavify {
-    display: block;
-    width: 400px;
-    margin: 25px auto;
-    border: 1px solid #ccc;
-    background: #eaeaea;
-    text-align: center;
-    padding: 25px;
-  }
-  .vue-wavify p {
-    margin: 0 0 1em;
-  }
+.vue-wavify-wave {
+  display: inline-block;
+  width: 100%;   
+}
+
+.vue-wavify-wave svg {
+  width: 100%;
+  height: 100%;
+}
 </style>
