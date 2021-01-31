@@ -58,6 +58,7 @@
     "node": ">=10"
   },
   "release": {
+    "branches": ["master", "main"],
     "verifyConditions": [
       "@semantic-release/changelog",
       "@semantic-release/npm",
@@ -65,7 +66,6 @@
       "@semantic-release/github"
     ],
     "analyzeCommits": {
-      "branches": ["master", "main"],
       "preset": "angular",
       "releaseRules": [
         {
