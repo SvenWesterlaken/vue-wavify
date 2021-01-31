@@ -65,6 +65,7 @@
       "@semantic-release/github"
     ],
     "analyzeCommits": {
+      "branches": ["master", "main"],
       "preset": "angular",
       "releaseRules": [
         {
