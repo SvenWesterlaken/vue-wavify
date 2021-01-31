@@ -28,7 +28,7 @@ jobs:
       run: npm run build
 
     - name: Release
-      run: npm run semantic-release && npm run coveralls
+      run: npm run semantic-release
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
