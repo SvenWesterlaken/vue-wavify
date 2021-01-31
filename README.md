@@ -18,15 +18,15 @@ A single Vue component to create and adjust an animated wave using svg & javascr
 
 The package can be imported globally or locally.
 
-**Locally**
+**Locally (single file component)**
 ```vue
-<script>
 <template>
   <div class="wave-container">
     <vue-wavify />
   </div>
 </template>
 
+<script>
 import VueWavify from 'vue-wavify';
 
 export default {
