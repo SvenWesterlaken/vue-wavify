@@ -1,6 +1,6 @@
 <template>
-<div class="vue-wavify-wave" ref="wave" v-on="$listeners" v-bind="$attrs">
-  <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+<div class="vue-wavify-wave" ref="wave" v-on="$listeners">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" v-bind="$attrs">
     <slot></slot>
     <path :d="this.path" :fill="fill"/>
   </svg>
