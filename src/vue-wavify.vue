@@ -1,8 +1,8 @@
 <template>
 <div class="vue-wavify-wave" ref="wave" v-on="$listeners">
-  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" v-bind="$attrs">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" >
     <slot></slot>
-    <path :d="this.path" :fill="fill"/>
+    <path :d="this.path" :fill="fill" v-bind="$attrs"/>
   </svg>
 </div>
 </template>
