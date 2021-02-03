@@ -109,11 +109,12 @@ export default {
         
         this.elapsed += (now - this.lastUpdate);
         this.lastUpdate = now;
-      }
-      const scale = 1000;
 
-      this.step = this.elapsed * Math.PI / scale;
-      this.redraw();
+        const scale = 1000;
+
+        this.step = this.elapsed * Math.PI / scale;
+        this.redraw();
+      }
     },
     update () {
       this.draw();
