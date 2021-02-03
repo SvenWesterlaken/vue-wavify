@@ -87,8 +87,43 @@ Below are some examples on how to implement the slot for configuring the svg/pat
 #### Result:
 ![gradient wave](./.github/images/gradient_wave.gif)
 
-# Configuring the container
-In order for the svg to take up full-width there is a container surrounding the svg. By standard it is set to `width: 100%; display: inline-block;`. The svg animating the wave is set to a width & height of 100%. Therefore, it is advised to manipulate the height and width by using the css class of the container: `.vue-wavify-wave`
+
+### Clipping path (mask)
+```vue
+<template>
+  <vue-wavify fill="#e62315" mask="url(#mask)" :points="20" :amplitude="25" :speed="0.2" :height="20">
+      <defs>
+        <mask id="mask">
+          <path d="M10,35 A20,20,0,0,1,50,35 A20,20,0,0,1,90,35 Q90,65,50,95 Q10,65,10,35 Z" fill="white" />
+        </mask>
+      </defs>
+    </vue-wavify>
+</template>
+```
+#### Result:
+![gradient wave](./.github/images/heart.gif)
+
+### Gradient
+```vue
+<template>
+  <vue-wavify mask="url(#mask2)" fill="#1277b0" >
+    <defs>
+      <linearGradient id="grad" gradientTransform="rotate(90)">
+        <stop offset="0" style="stop-color:white;" />
+        <stop offset="0.5" style="stop-color:black;" />
+      </linearGradient>
+      <mask id="mask2">
+        <rect x="0" y="0" width="800" height="200" fill="url(#grad)"/>
+      </mask>
+    </defs>
+  </vue-wavify>
+</template>
+```
+#### Result:
+![gradient wave](./.github/images/mask.gif)
+
+# Styling the container
+In order for the svg to take up full-width there is a container surrounding the svg with a class of `.vue-wavify-wave`. By standard its styling is set to `width: 100%; display: inline-block;`. The svg animating the wave is set to a width & height of 100%. Therefore, it is advised to manipulate the height and width by using the css class of the container.
 
 # Credits
 
