@@ -61,14 +61,14 @@ In order the configure the wave, the following props can be applied:
 | `amplitude` | `20`    | `Number`  | Amplitude of the rendered wave |
 | `fill`      | `blue`  | `String`  | Color of the wave (can be anything that a SVG path accepts) |
 
-**Note:** Props that are not mentiond above will be passed on the svg element instead of the container.
+**Note:** Props that are not mentiond above will be passed on to the path element (instead of the container). Except for `id` & `style` attribute, these will be added to the container.
 
 # Configuring the SVG
 It is possible to configure and style the svg more precisely by using the default [slot](https://vuejs.org/v2/guide/components-slots.html).
 This can be any HTML a SVG accepts. For example a `<defs>` component to add gradients, clipping paths, or masks.
 
 # Configuring the container
-In order for the svg to take up full-width there is a container surrounding the svg. By standard it is set to `width: 100%; display: inline-block;`. The svg animating the wave is set to a width & height of 100%. Therefore, it is advised to manipulate the height and width by using the css class of the container: `.vue-wavify-wave`.
+In order for the svg to take up full-width there is a container surrounding the svg. By standard it is set to `width: 100%; display: inline-block;`. The svg animating the wave is set to a width & height of 100%. Therefore, it is advised to manipulate the height and width by using the css class of the container: `.vue-wavify-wave`
 
 # Credits
 
