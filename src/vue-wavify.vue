@@ -1,8 +1,8 @@
 <template>
-<div class="vue-wavify-wave" ref="wave" v-on="$listeners">
-  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" v-bind="$attrs">
+<div class="vue-wavify-wave" ref="wave" v-on="$listeners" :id="id" :style="style">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" >
     <slot></slot>
-    <path :d="this.path" :fill="fill"/>
+    <path :d="this.path" :fill="fill" v-bind="$attrs"/>
   </svg>
 </div>
 </template>
@@ -34,6 +34,14 @@ export default {
     },
     fill: {
       default: 'blue',
+      type: String
+    },
+    id: {
+      default: null,
+      type: String
+    },
+    style: {
+      default: null,
       type: String
     }
   },
@@ -109,11 +117,12 @@ export default {
         
         this.elapsed += (now - this.lastUpdate);
         this.lastUpdate = now;
-      }
-      const scale = 1000;
 
-      this.step = this.elapsed * Math.PI / scale;
-      this.redraw();
+        const scale = 1000;
+
+        this.step = this.elapsed * Math.PI / scale;
+        this.redraw();
+      }
     },
     update () {
       this.draw();
