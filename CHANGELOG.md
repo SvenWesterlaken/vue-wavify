@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/SvenWesterlaken/vue-wavify/compare/v1.1.0...v1.2.0) (2021-02-03)
+
+
+### Bug Fixes
+
+* **animation:** move redraw function into pause if statement ([f628bd6](https://github.com/SvenWesterlaken/vue-wavify/commit/f628bd6be81659cbcc88d4ad30f2ad5929ac4ac3))
+* **svg:** move rest attributes to path instead of svg ([34bfdee](https://github.com/SvenWesterlaken/vue-wavify/commit/34bfdee2f5ab23948dab4e1598584587b91f9636))
+
+
+### Features
+
+* **customization:** add fill & id attribute to container ([5b19b0c](https://github.com/SvenWesterlaken/vue-wavify/commit/5b19b0c31d8b87914d0d397ce7b6fd24d508bf28))
+
 # [1.1.0](https://github.com/SvenWesterlaken/vue-wavify/compare/v1.0.0...v1.1.0) (2021-01-31)
 
 
