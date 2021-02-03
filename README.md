@@ -67,6 +67,26 @@ In order the configure the wave, the following props can be applied:
 It is possible to configure and style the svg more precisely by using the default [slot](https://vuejs.org/v2/guide/components-slots.html).
 This can be any HTML a SVG accepts. For example a `<defs>` component to add gradients, clipping paths, or masks.
 
+## Examples
+
+Below are some examples on how to implement the slot for configuring the svg/path.
+
+### Gradient
+```vue
+<template>
+  <vue-wavify fill="url(#gradient)">
+    <defs>
+      <linearGradient id="gradient">
+        <stop offset="0%" style="stop-color:rgb(255,255,0);" />
+        <stop offset="100%" style="stop-color:rgb(255,0,0);" />
+      </linearGradient>
+    </defs>
+  </vue-wavify>
+</template>
+```
+#### Result:
+![gradient wave](./.github/images/gradient_wave.gif)
+
 # Configuring the container
 In order for the svg to take up full-width there is a container surrounding the svg. By standard it is set to `width: 100%; display: inline-block;`. The svg animating the wave is set to a width & height of 100%. Therefore, it is advised to manipulate the height and width by using the css class of the container: `.vue-wavify-wave`
 
