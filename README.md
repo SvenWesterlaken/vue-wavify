@@ -71,6 +71,8 @@ This can be any HTML a SVG accepts. For example a `<defs>` component to add grad
 
 Below are some examples on how to implement the slot for configuring the svg/path.
 
+**Note:** The framerate of the gifs are limited to 25, the actual animation is smooth.
+
 ### Gradient
 ```vue
 <template>
