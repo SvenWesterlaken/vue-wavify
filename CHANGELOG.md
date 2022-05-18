@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/SvenWesterlaken/vue-wavify/compare/v1.2.0...v1.2.1) (2022-05-18)
+
+
+### Bug Fixes
+
+* **attrs:** use seperated attributes to prevent style prop warning ([4a92362](https://github.com/SvenWesterlaken/vue-wavify/commit/4a923627296c01901039ffb4da88f1ef97d408bd))
+
 # [1.2.0](https://github.com/SvenWesterlaken/vue-wavify/compare/v1.1.0...v1.2.0) (2021-02-03)
 
 
