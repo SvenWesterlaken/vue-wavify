@@ -1,8 +1,8 @@
 <template>
-<div class="vue-wavify-wave" ref="wave" v-on="$listeners" :id="id" :style="style">
+<div class="vue-wavify-wave" ref="wave" v-on="$listeners" :id="id" :style="separatedAttrs.style">
   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" >
     <slot></slot>
-    <path :d="this.path" :fill="fill" v-bind="$attrs"/>
+    <path :d="this.path" :fill="fill" v-bind="separatedAttrs.rest"/>
   </svg>
 </div>
 </template>
@@ -39,10 +39,6 @@ export default {
     id: {
       default: null,
       type: String
-    },
-    style: {
-      default: null,
-      type: String
     }
   },
   data() {
@@ -61,6 +57,12 @@ export default {
   beforeDestroy() {
     window.cancelAnimationFrame(this.$frameId);
     this.$frameId = 0;
+  },
+  computed: {
+    separatedAttrs () {
+      const { style,...rest } = this.$attrs;
+      return { style, rest };
+    },
   },
   methods: {
     containerWidth () {

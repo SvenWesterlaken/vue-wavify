@@ -38,6 +38,7 @@ export default Vue.extend({
         </mask>
       </defs>
     </vue-wavify>
+    <vue-wavify fill="#1c0280" style="margin-top: 200px"></vue-wavify>
   </div>
 </template>
 
