@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/SvenWesterlaken/vue-wavify/compare/v1.2.1...v1.2.2) (2022-05-18)
+
+
+### Bug Fixes
+
+* **deploy:** add dry release for testing ([79bb734](https://github.com/SvenWesterlaken/vue-wavify/commit/79bb73483f5f6b18800b50db7438639068ed872c))
+
 ## [1.2.1](https://github.com/SvenWesterlaken/vue-wavify/compare/v1.2.0...v1.2.1) (2022-05-18)
 
 
